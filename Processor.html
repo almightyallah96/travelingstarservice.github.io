@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="1Doc 1.5.0. (MacOSX)"/>
+	<meta name="created" content="2025-12-05T21:44:14.994149414"/>
+	<meta name="changed" content="2025-12-05T21:46:24.411623383"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		a:link { color: #000080; text-decoration: underline }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0in">
+&lt;!-- BEGIN: Custom Checkout + Payment Buttons --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&lt;section
+id=&quot;checkout&quot; style=&quot;max-width:900px;margin:30px
+auto;padding:24px;background:#fff;border-radius:10px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;h2&gt;Secure
+Booking &amp; Payment&lt;/h2&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;!--
+Booking inputs (you can prefill these from your booking form) --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;div
+style=&quot;display:grid;gap:8px;margin-top:12px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;pickup&quot; placeholder=&quot;Pickup address&quot;
+style=&quot;padding:10px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;dropoff&quot; placeholder=&quot;Drop-off address&quot;
+style=&quot;padding:10px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;date&quot; type=&quot;date&quot; style=&quot;padding:10px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;time&quot; type=&quot;time&quot; style=&quot;padding:10px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;rate&quot; type=&quot;number&quot; value=&quot;2.50&quot;
+step=&quot;0.01&quot; style=&quot;padding:10px;&quot; /&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+id=&quot;calcBtn&quot;
+style=&quot;padding:12px;background:#0b6cff;color:#fff;border:0;border-radius:8px;&quot;&gt;Calculate
+Price&lt;/button&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;div
+id=&quot;summary&quot;
+style=&quot;display:none;margin-top:16px;padding:12px;border-radius:8px;background:#f4f7ff;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;Estimated
+distance:&lt;/strong&gt; &lt;span id=&quot;distanceOut&quot;&gt;&lt;/span&gt;
+miles&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;strong&gt;Total
+price:&lt;/strong&gt; $&lt;span id=&quot;priceOut&quot;&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+style=&quot;font-size:13px;color:#555&quot;&gt;Choose a payment
+method below to complete booking.&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;div
+id=&quot;paymentOptions&quot;
+style=&quot;display:none;margin-top:14px;gap:8px;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+PayPal (PayPal.Me) --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+id=&quot;paypalBtn&quot;
+style=&quot;width:100%;padding:12px;border-radius:8px;border:0;background:#003087;color:white;&quot;&gt;Pay
+with PayPal&lt;/button&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Stripe --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+id=&quot;stripeBtn&quot;
+style=&quot;width:100%;padding:12px;border-radius:8px;border:0;background:#6772e5;color:white;margin-top:8px;&quot;&gt;Pay
+with Stripe&lt;/button&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Square --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+id=&quot;squareBtn&quot;
+style=&quot;width:100%;padding:12px;border-radius:8px;border:0;background:#2d6a4f;color:white;margin-top:8px;&quot;&gt;Pay
+with Square&lt;/button&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Cash App --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
+style=&quot;margin-top:8px;padding:12px;border-radius:8px;border:1px
+dashed #ddd;background:#fff;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+style=&quot;margin:0 0 6px 0;&quot;&gt;&lt;strong&gt;Pay with Cash
+App&lt;/strong&gt;&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
+style=&quot;display:flex;gap:8px;align-items:center;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input
+id=&quot;cashTag&quot; readonly
+style=&quot;padding:8px;border-radius:6px;border:1px solid
+#eee;flex:1;&quot; value=&quot;CASHAPP_CASHTAG&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+id=&quot;copyCash&quot;
+style=&quot;padding:8px;border-radius:6px;border:0;background:#21c25e;color:#fff;&quot;&gt;Copy
+$Cashtag&lt;/button&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;small
+style=&quot;color:#666;display:block;margin-top:8px;&quot;&gt;Open
+Cash App and paste the $Cashtag to pay the shown amount.&lt;/small&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--
+Zelle --&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
+style=&quot;margin-top:8px;padding:12px;border-radius:8px;border:1px
+dashed #ddd;background:#fff;&quot;&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+style=&quot;margin:0 0 6px 0;&quot;&gt;&lt;strong&gt;Pay with
+Zelle&lt;/strong&gt;&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+style=&quot;margin:0;color:#333&quot;&gt;Send to: &lt;span
+id=&quot;zelleAddr&quot;&gt;ZELLE_EMAIL_OR_PHONE&lt;/span&gt;&lt;/p&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;small
+style=&quot;color:#666;display:block;margin-top:8px;&quot;&gt;Open
+your bank app → Zelle → Send → paste this email/phone and enter
+the amount.&lt;/small&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&lt;/div&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&lt;/section&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&lt;script&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">/* ====== CONFIG:
+paste your provider links / values here ====== */</p>
+<p style="line-height: 100%; margin-bottom: 0in">const CONFIG = {</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;PAYPAL_ME_USER:
+'PAYPAL_ME_USERNAME',&nbsp;&nbsp;&nbsp;&nbsp;// e.g. 'YourPayPalMe'
+(no slashes)</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;STRIPE_LINK:
+'STRIPE_LINK_HERE',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+full Stripe Payment Link URL</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;SQUARE_LINK:
+'SQUARE_LINK_HERE',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+full Square Payment Link URL</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;CASHAPP_CASHTAG:
+'CASHAPP_CASHTAG',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// e.g.
+'$YourCashtag' or 'YourCashtag'</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;ZELLE_ADDR:
+'ZELLE_EMAIL_OR_PHONE'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+e.g. your zelle-email@example.com or phone</p>
+<p style="line-height: 100%; margin-bottom: 0in">};</p>
+<p style="line-height: 100%; margin-bottom: 0in">/*
+=========================================================== */</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('cashTag').value
+= CONFIG.CASHAPP_CASHTAG;</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('zelleAddr').textContent
+= CONFIG.ZELLE_ADDR;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Simple distance
+estimator (same approach as earlier — straight-line demo)</p>
+<p style="line-height: 100%; margin-bottom: 0in">function
+estimateDistance(pickup, dropoff) {</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;// If
+you want a real distance upgrade later we can connect to Google Maps
+API.</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;// For
+now use a small heuristic or fallback random realistic range:</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;return
+Math.max(1, Math.round((Math.random() * 20) + 2)); // 2–22 miles</p>
+<p style="line-height: 100%; margin-bottom: 0in">}</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">function calculate()
+{</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+pickup = document.getElementById('pickup').value;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+dropoff = document.getElementById('dropoff').value;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+rate = parseFloat(document.getElementById('rate').value || '2.5');</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;if(!pickup
+|| !dropoff) { alert('Enter both pickup and drop-off'); return; }</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+dist = estimateDistance(pickup, dropoff);</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+total = (dist * rate).toFixed(2);</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;document.getElementById('distanceOut').textContent
+= dist;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;document.getElementById('priceOut').textContent
+= total;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;document.getElementById('summary').style.display
+= 'block';</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;document.getElementById('paymentOptions').style.display
+= 'grid';</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;// store
+for use when opening payment links</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;window.bookingData
+= { pickup, dropoff, rate, distance: dist, price: total };</p>
+<p style="line-height: 100%; margin-bottom: 0in">}</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('calcBtn').addEventListener('click',
+calculate);</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// PayPal button:
+opens PayPal.Me link with amount (PayPal.Me supports /AMOUNT)</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('paypalBtn').addEventListener('click',
+function(){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const d
+= window.bookingData;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;if(!d){
+alert('Calculate price first'); return; }</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+amt = encodeURIComponent(d.price);</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+user = CONFIG.PAYPAL_ME_USER;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;if(!user
+|| user==='PAYPAL_ME_USERNAME'){ alert('Please set your PayPal.Me
+username in CONFIG'); return; }</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+url = 'https://paypal.me/' + user + '/' + amt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;window.open(url,
+'_blank');</p>
+<p style="line-height: 100%; margin-bottom: 0in">});</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Stripe button:
+open the configured payment link. Create payment links in Stripe
+Dashboard (paste URL in CONFIG.STRIPE_LINK)</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('stripeBtn').addEventListener('click',
+function(){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+url = CONFIG.STRIPE_LINK;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;if(!url
+|| url==='STRIPE_LINK_HERE'){ alert('Please paste your Stripe Payment
+Link URL in CONFIG'); return; }</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;// If
+you create many fixed-price links, you can optionally generate links
+per price in dashboard and paste here</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;window.open(url,
+'_blank');</p>
+<p style="line-height: 100%; margin-bottom: 0in">});</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Square button:
+open the configured Square payment link (paste the link in
+CONFIG.SQUARE_LINK)</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('squareBtn').addEventListener('click',
+function(){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+url = CONFIG.SQUARE_LINK;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;if(!url
+|| url==='SQUARE_LINK_HERE'){ alert('Please paste your Square Payment
+Link URL in CONFIG'); return; }</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;window.open(url,
+'_blank');</p>
+<p style="line-height: 100%; margin-bottom: 0in">});</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Copy cash tag</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('copyCash').addEventListener('click',
+function(){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;const
+tag = CONFIG.CASHAPP_CASHTAG;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;navigator.clipboard
+&amp;&amp; navigator.clipboard.writeText(tag).then(function(){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;&nbsp;&nbsp;alert('Cashtag
+copied! Open Cash App and paste to pay.');</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;},
+function(){ alert('Copy failed — please select and copy manually: '
++ tag); });</p>
+<p style="line-height: 100%; margin-bottom: 0in">});</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Form submit: you
+can also post booking + payment method data to your email via
+FormSubmit or Formspree</p>
+<p style="line-height: 100%; margin-bottom: 0in">// Example
+(uncomment and adapt if you want to send booking requests
+automatically):</p>
+<p style="line-height: 100%; margin-bottom: 0in">/*</p>
+<p style="line-height: 100%; margin-bottom: 0in">document.getElementById('bookingForm').addEventListener('submit',
+function(e){</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;e.preventDefault();</p>
+<p style="line-height: 100%; margin-bottom: 0in">&nbsp;&nbsp;// send
+booking data to your email via form handler...</p>
+<p style="line-height: 100%; margin-bottom: 0in">});</p>
+<p style="line-height: 100%; margin-bottom: 0in">*/</p>
+<p style="line-height: 100%; margin-bottom: 0in">&lt;/script&gt;</p>
+<p style="line-height: 100%; margin-bottom: 0in">&lt;!-- END: Custom
+Checkout + Payment Buttons --&gt;</p>
+</body>
+</html>
