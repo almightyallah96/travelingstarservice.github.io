@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveling Star Transport</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f7f7fb; color:#111; margin:0; padding:0; }
+    header { background:#0b4d77; color:white; padding:30px; text-align:center; }
+    main { max-width:800px; margin:30px auto; padding:0 20px; }
+    section { background:white; padding:20px; margin-bottom:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    a { display:inline-block; margin-top:10px; padding:10px 16px; border-radius:8px; text-decoration:none; color:white; background:#0b4d77; }
+    footer { text-align:center; padding:20px; color:#666; font-size:14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Traveling Star Transport</h1>
+    <p>Reliable local transportation services</p>
+  </header>
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>Fast, safe, and dependable transportation in your area. Airport pickups, hourly rides, and special event transport.</p>
+      <a href="tel:+12529692444">Call: (252) 969-2444</a>
+    </section>
+    <section>
+      <h3>Our Services</h3>
+      <ul>
+        <li>Airport pickups & drop-offs</li>
+        <li>Hourly charters & events</li>
+        <li>Medical & non-emergency transport</li>
+        <li>Package & small cargo deliveries</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Book a ride</h3>
+      <p>Call (252) 969-2444 or email info@travelingstartransport.com to book your ride.</p>
+    </section>
+  </main>
+  <footer>
+    © Traveling Star Transport — Created with GitHub Pages
+  </footer>
+</body>
+</html>
